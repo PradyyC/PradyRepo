@@ -1,0 +1,45 @@
+package SwagLabsProject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SwagLabsEx4 {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\Pradeep\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.saucedemo.com/");
+		driver.manage().window().maximize();
+		
+		WebElement Username = driver.findElement(By.xpath("//input[@id='user-name']"));
+		Username.sendKeys("standard_user");
+		Thread.sleep(5000);
+		
+		WebElement Password = driver.findElement(By.xpath("//input[@id='password']"));
+		Password.sendKeys("secret_sauce");
+	
+		WebElement Login = driver.findElement(By.xpath("//input[@id='login-button']"));
+		Login.click();
+		
+		WebElement AddtoCart = driver.findElement(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory']"));
+		AddtoCart.click();
+		
+		WebElement Cart = driver.findElement(By.linkText("shopping_cart_link"));
+		Cart.click();
+		
+		WebElement ContinueShopping = driver.findElement(By.xpath("//button[@id='continue-shopping']"));
+		ContinueShopping.click();
+		
+		WebElement Cart1 = driver.findElement(By.linkText("shopping_cart_link"));
+		Cart1.click();
+		
+		WebElement Checkout = driver.findElement(By.xpath("//button[@id='checkout']"));
+		Checkout.click();
+		
+		
+	}
+
+}
